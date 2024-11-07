@@ -1,15 +1,18 @@
-import {
-  Box,
-  Button,
-  Card,
-  CardContent,
-  CardMedia,
-  CircularProgress,
-  Container,
-  Typography,
-} from "@mui/material";
+import Button from "@mui/material/Button";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import CardMedia from "@mui/material/CardMedia";
+import CircularProgress from "@mui/material/CircularProgress";
+import Typography from "@mui/material/Typography";
 import { useEffect, useState } from "react";
-import { picsumService } from "../services/picsumService";
+import { picsumService } from "../../services/picsumService";
+import {
+  ButtonBox,
+  CardBox,
+  ImageGalleryBox,
+  OuterBox,
+  TitleTypography,
+} from "./styles";
 
 const ImageGallery = () => {
   const [images, setImages] = useState<{ id: string; author: string }[]>([]);
@@ -38,17 +41,12 @@ const ImageGallery = () => {
   };
 
   return (
-    <Container maxWidth="lg" sx={{ py: 4 }}>
-      <Typography variant="h4" component="h1" gutterBottom align="center">
-        Galeria de Imagens
-      </Typography>
+    <ImageGalleryBox>
+      <TitleTypography>Galeria de Imagens</TitleTypography>
 
-      <Box sx={{ display: "flex", flexWrap: "wrap", gap: 3 }}>
+      <OuterBox>
         {images.map((image) => (
-          <Box
-            key={image.id}
-            sx={{ width: { xs: "100%", sm: "48%", md: "31%" } }}
-          >
+          <CardBox key={image.id}>
             <Card>
               <CardMedia
                 component="img"
@@ -62,11 +60,11 @@ const ImageGallery = () => {
                 </Typography>
               </CardContent>
             </Card>
-          </Box>
+          </CardBox>
         ))}
-      </Box>
+      </OuterBox>
 
-      <Box sx={{ display: "flex", justifyContent: "center", mt: 4 }}>
+      <ButtonBox>
         {loading ? (
           <CircularProgress />
         ) : (
@@ -74,8 +72,8 @@ const ImageGallery = () => {
             Carregar Mais
           </Button>
         )}
-      </Box>
-    </Container>
+      </ButtonBox>
+    </ImageGalleryBox>
   );
 };
 
