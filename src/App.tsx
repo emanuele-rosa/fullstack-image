@@ -1,5 +1,7 @@
+import ImageGallery from "./components/imageGallery/ImageGallery";
+
 function App() {
-  return <h1>Image gallery</h1>;
+  return <ImageGallery />;
 }
 
 export default App;
