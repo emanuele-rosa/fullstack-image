@@ -1,5 +1,5 @@
 import { useImageContext } from '../context/SearchContext';
-import { FaSearch } from 'react-icons/fa'; // ou substitua por outro ícone, se necessário
+import { FaSearch } from 'react-icons/fa';
 
 export const ImageSearch = () => {
   const { searchQuery, setSearchQuery, setPage } = useImageContext();
@@ -7,7 +7,7 @@ export const ImageSearch = () => {
   // Tipando o evento corretamente como React.ChangeEvent<HTMLInputElement>
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchQuery(e.target.value);
-    setPage(1); // Reseta para a primeira página ao realizar uma nova busca
+    setPage(1);
   };
 
   return (
