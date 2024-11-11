@@ -4,14 +4,13 @@ import { FaSearch } from 'react-icons/fa';
 export const ImageSearch = () => {
   const { searchQuery, setSearchQuery, setPage } = useImageContext();
 
-  // Tipando o evento corretamente como React.ChangeEvent<HTMLInputElement>
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchQuery(e.target.value);
     setPage(1);
   };
 
   return (
-    <div className="max-w-md mx-auto mb-8">
+    <div className="max-w-md mx-auto mb-4">
       <div className="relative">
         <input
           type="text"

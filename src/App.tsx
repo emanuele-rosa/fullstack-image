@@ -1,7 +1,13 @@
 import ImageGallery from "./components/imageGallery/ImageGallery";
+import { ImageSearch } from './components/ImageSearch';
 
 function App() {
-  return <ImageGallery />;
+  return (
+    <>
+      <ImageGallery />
+      <ImageSearch />
+    </>
+  );
 }
 
 export default App;
