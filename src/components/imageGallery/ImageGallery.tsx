@@ -4,14 +4,12 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import CircularProgress from "@mui/material/CircularProgress";
 import Typography from "@mui/material/Typography";
+import Box from "@mui/material/Box";
 import { useEffect, useState } from "react";
 import { picsumService } from "../../services/picsumService";
 import {
-  ButtonBox,
   CardBox,
-  ImageGalleryBox,
   OuterBox,
-  TitleTypography,
 } from "./styles";
 
 const ImageGallery = () => {
@@ -22,7 +20,6 @@ const ImageGallery = () => {
   const fetchImages = async () => {
     try {
       setLoading(true);
-
       const response = await picsumService.getImages(page);
       setImages((prevImages) => [...prevImages, ...response.data]);
     } catch (error) {
@@ -41,8 +38,21 @@ const ImageGallery = () => {
   };
 
   return (
-    <ImageGalleryBox>
-      <TitleTypography>Galeria de Imagens</TitleTypography>
+    <Box>
+      <Box sx={{
+        width: '100%',
+        backgroundColor: 'white',
+        padding: '20px',
+        position: 'sticky',
+        top: 0,
+        zIndex: 1,
+        boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
+        textAlign: 'center'
+      }}>
+        <Typography variant="h4" component="h1">
+          Galeria de Imagens
+        </Typography>
+      </Box>
 
       <OuterBox>
         {images.map((image) => (
@@ -64,7 +74,17 @@ const ImageGallery = () => {
         ))}
       </OuterBox>
 
-      <ButtonBox>
+      <Box sx={{
+        width: '100%',
+        backgroundColor: 'white',
+        padding: '20px',
+        position: 'sticky',
+        bottom: 0,
+        zIndex: 1,
+        boxShadow: '0 -2px 4px rgba(0,0,0,0.1)',
+        display: 'flex',
+        justifyContent: 'center'
+      }}>
         {loading ? (
           <CircularProgress />
         ) : (
@@ -72,8 +92,8 @@ const ImageGallery = () => {
             Carregar Mais
           </Button>
         )}
-      </ButtonBox>
-    </ImageGalleryBox>
+      </Box>
+    </Box>
   );
 };
 
