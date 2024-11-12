@@ -4,8 +4,8 @@ import { ImageSearch } from './components/ImageSearch';
 function App() {
   return (
     <>
-      <ImageGallery />
       <ImageSearch />
+      <ImageGallery />
     </>
   );
 }
